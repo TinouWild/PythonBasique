@@ -33,3 +33,8 @@ import math
 math.ceil(4.3) # entier supérieur
 math.exp(2) # exponentielle
 math.isinf(3.3) # teste si la valeur est infinie (booléen)
+
+# Compréhension de listes
+liste = [-5, 6, 8, 12, 14, 0, 1, 5, 17, 4]
+nombres_positifs = [i for i in liste if i % 2 == 0]
+print(nombres_positifs)
