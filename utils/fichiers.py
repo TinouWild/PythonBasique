@@ -53,4 +53,3 @@ with open(pathJson, "r") as f:
     liste = json.load(f)
     print(liste)
 
-
