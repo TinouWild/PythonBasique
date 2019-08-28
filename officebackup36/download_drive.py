@@ -7,12 +7,23 @@ from O365 import FileSystemTokenBackend
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-directory_save = os.path.join(path, 'drive_sauvegarde')
-os.makedirs(directory_save, exist_ok=1)
 
 
-def create_folder(item):
-    folder = os.path.join(directory_save, item.name)
+def save_folder(folder, custom_path=None):
+    if custom_path:
+        current_path = custom_path
+    else:
+        current_path = os.path.join(path, folder.name)
+    for item in folder.get_items():
+        if item.is_folder and item.child_count > 0:
+            new_folder = create_folder(item, current_path)
+            save_folder(item, new_folder)
+        if item.is_file:
+            download_file(item, current_path)
+
+
+def create_folder(item, current_path):
+    folder = os.path.join(current_path, item.name)
     os.makedirs(folder, exist_ok=1)
     print(f"Dossier {item.name} créé avec succès !")
     return folder
@@ -33,11 +44,4 @@ account.authenticate(scopes=['basic', 'message_all', 'onedrive_all'])
 storage = account.storage()
 my_drive = storage.get_default_drive()
 
-for item in my_drive.get_items():
-    if item.is_folder and item.child_count > 0:
-        folder = create_folder(item)
-        for file in item.get_items():
-            if file.is_file:
-                download_file(file, folder)
-    elif item.is_file:
-        download_file(item, directory_save)
+save_folder(my_drive)
