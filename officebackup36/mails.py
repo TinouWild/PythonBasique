@@ -8,7 +8,7 @@ credentials = ('7b9c81d7-2c01-4d48-86fc-9a7cd9700b85', 'cBPj06Vjh_[HNkntI-e6pEf.
 
 token_backend = FileSystemTokenBackend(token_path='my_folder', token_filename='my_token.txt')
 account = Account(credentials, protocol=protocol, token_backend=token_backend)
-account.authenticate(scopes=['basic', 'message_all', 'onedrive_all'])
+account.authenticate(scopes=['basic', 'message_all', 'onedrive_all', 'address_book_all'])
 
 mailbox = account.mailbox()
 inbox = mailbox.inbox_folder()
