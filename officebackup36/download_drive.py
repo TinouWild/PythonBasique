@@ -1,6 +1,3 @@
-# client ID: 7b9c81d7-2c01-4d48-86fc-9a7cd9700b85
-# client secret: cBPj06Vjh_[HNkntI-e6pEf.h1JKn12H
-
 from O365 import Account
 from O365 import MSGraphProtocol
 from O365 import FileSystemTokenBackend
