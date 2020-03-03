@@ -2,10 +2,9 @@
 import json
 
 
-def greet(name):
-    print("Hello, {0}!".format(name))
+def greet(firstname):
+    print "Hello, {0}!".format(firstname)
 
 
-print("What's your name?")
-name = input()
+name = raw_input("What's your name?")
 greet(name)

@@ -1,0 +1,3 @@
+provider: generic
+url: 'http://upd.sauvegardes.org/v4-32/classic/master'
+channel: master
