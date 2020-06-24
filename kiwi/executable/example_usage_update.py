@@ -12,3 +12,4 @@ class Test(object):
 
 exeCollector = Test()
 print exeCollector.exe
+print(exeCollector.__dict__)

@@ -1,3 +1,3 @@
 import datetime
 
-print(datetime.date.today().strftime('%Y%m%d'))
+print(datetime.datetime.today())
